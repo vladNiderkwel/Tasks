@@ -5,6 +5,8 @@ import spark.Filter
 import spark.Spark.*
 
 fun main() {
+    println("Server is running on http://localhost:4567")
+
     after(Filter { _, response ->
         with(response) {
             header("Access-Control-Allow-Origin", "*")
@@ -17,6 +19,7 @@ fun main() {
         resp.status(200)
     }
 
+    // Получение заданий
     get("/") { req, resp ->
         try {
             val limit = req.queryParams("limit")
@@ -36,6 +39,7 @@ fun main() {
         }
     }
 
+    // Поиск заданий по строке
     get("/find") { req, resp ->
         try {
             val q = req.queryParams("q")
@@ -56,16 +60,19 @@ fun main() {
         }
     }
 
+    // Поиск заданий по датам
     get("/date") { req, resp ->
         try {
             val from = req.queryParams("from")
             val to = req.queryParams("to")
+            val status = req.queryParams("status")
             val limit = req.queryParams("limit")
             val offset = req.queryParams("offset")
 
             val dateResponse = TodosService.date(
-                from = from.toInt(),
-                to = to.toInt(),
+                from = from.toLong(),
+                to = to.toLong(),
+                status = status?.toBoolean(),
                 limit = limit?.toInt(),
                 offset = offset?.toInt()
             )

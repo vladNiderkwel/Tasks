@@ -23,7 +23,7 @@ object TodosService {
     }
 
     fun find(q: String, limit: Int?, offset: Int?): Response {
-        val findUrl = URL.toHttpUrl().newBuilder().apply {
+        val findUrl = "$URL/find".toHttpUrl().newBuilder().apply {
             addQueryParameter("q", q)
             if (limit != null) addQueryParameter("limit", limit.toString())
             if (offset != null) addQueryParameter("offset", offset.toString())
@@ -36,11 +36,11 @@ object TodosService {
     }
 
     fun date(
-        from: Int, to: Int, status: Boolean? = false,
+        from: Long, to: Long, status: Boolean? = false,
         limit: Int?, offset: Int?
     ): Response {
 
-        val dateUrl = URL.toHttpUrl().newBuilder().apply {
+        val dateUrl = "$URL/date".toHttpUrl().newBuilder().apply {
             addQueryParameter("from", from.toString())
             addQueryParameter("to", to.toString())
             if (status != null) addQueryParameter("status", status.toString())
