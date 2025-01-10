@@ -13,7 +13,7 @@ repositories {
 dependencies {
     implementation("com.sparkjava:spark-core:2.9.4")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
-    runtimeOnly("com.h2database:h2:2.2.224")
+    implementation("com.h2database:h2:2.2.224")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 
@@ -22,4 +22,14 @@ tasks.test {
 }
 kotlin {
     jvmToolchain(17)
+}
+
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "org.example.MainKt"
+    }
+    configurations["compileClasspath"].forEach { file: File ->
+        from(zipTree(file.absoluteFile))
+    }
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }

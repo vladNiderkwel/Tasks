@@ -6,7 +6,8 @@
 }
 
 html {
-    min-height: 100vh;
+    min-height: 100%;
+    height: 100%;
     font-family: "Rubik", serif;
 }
 
@@ -16,6 +17,7 @@ svg {
 
 body {
     min-height: 100%;
+    height: 100%;
     margin: 0;
 }
 
@@ -110,11 +112,15 @@ header {
 #sort-tasks {
     width: min-content;
     display: flex;
-    padding: auto 0;
+    padding: 4px 8px;
+    border-radius: 16px;
+    border: solid 1px transparent;
+    transition: all 0.2s;
 }
 
 #sort-tasks:hover {
     cursor: pointer;
+    border-color: var(--text-color);
 }
 
 #sort-tasks {
@@ -237,13 +243,17 @@ header {
     padding: 5px;
 }
 
+#calendar table .selectable-date {
+    border: solid 1px transparent;
+}
+
 #calendar table .selectable-date:hover {
     background: var(--text-color);
     color: var(--background-color);
 }
 
 #calendar table .selected-date {
-    border: solid 1px var(--text-color);
+    border-color: var(--text-color);
 }
 
 #calendar a:hover, #calendar table .selectable-date:hover {
@@ -251,7 +261,7 @@ header {
 }
 
 /*
-// Полная информация задания
+// Полная информация о задании
 */
 
 #todo-background {
@@ -324,16 +334,19 @@ header {
 #search-results-container {
     position: absolute;
     width: auto;
-    border-radius: 16px;
+    border-radius: 24px;
     padding: 16px;
     width: 400px;
+    max-width: 500px;
     height: min-content;
     max-height: 400px;
     background: var(--body-color);
     border: solid 1px var(--border-color);
     overflow-y: auto;
+    overflow-x: hidden;
     visibility: hidden;
 }
+
 #search-results-container .find-task-card > * {
     margin: 4px 0;
 }

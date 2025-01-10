@@ -70,10 +70,14 @@ formSearch.onsubmit = (e) => {
     fetchFind(formSearch.elements.query.value)
 }
 
+let isSearchResultsContainerVisible = false 
+
 document.getElementById("search-input").addEventListener("input", e => {
     fetch(`${URL}/find?q=${formSearch.elements.query.value}&limit=5&offset=0`)
         .then(resp => resp.json())
         .then(data => {
+            isSearchResultsContainerVisible = true
+
             findTasks = data
 
             searchResultsContainer.innerHTML = ""
@@ -101,8 +105,15 @@ document.getElementById("search-input").addEventListener("input", e => {
                 })
             })
 
-            searchResultsContainer.removeChild(searchResultsContainer.lastChild)
+            searchResultsContainer.removeChild(searchResultsContainer.lastChild)  
         })
+})
+
+window.addEventListener("click", e => {
+    if (isSearchResultsContainerVisible && !searchResultsContainer.contains(e.target)){
+        isSearchResultsContainerVisible = false
+        searchResultsContainer.style.visibility = "hidden"
+    }
 })
 
 /*

@@ -6,6 +6,8 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 fun main() {
+    println("Server is running on http://localhost:4567")
+
     after(Filter { _, response ->
         with(response) {
             header("Access-Control-Allow-Origin", "*")
