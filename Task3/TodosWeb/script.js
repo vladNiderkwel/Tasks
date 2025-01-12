@@ -122,12 +122,10 @@ window.addEventListener("click", e => {
 
 let isTasksNotDone = document.getElementById("tasks-not-done")
 isTasksNotDone.addEventListener("change", e => {
-    if (e.currentTarget.checked) {
-
-        let filtered = tasks.filter(task => task.status == false)
-        displayingTasks = filtered
-    }
-    else displayingTasks = tasks
+    if (e.currentTarget.checked)
+        displayingTasks = displayingTasks.filter(task => task.status == false)
+    else 
+        displayingTasks = tasks
 
     updateTasks()
 })
