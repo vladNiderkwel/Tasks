@@ -1,0 +1,372 @@
+:root {
+    --background-color: #EEE7DD;
+    --body-color: #F8F5F1;
+    --border-color: #E4D7C3;
+    --text-color: #432E14;
+}
+
+html {
+    min-height: 100%;
+    height: 100%;
+    font-family: "Rubik", serif;
+}
+
+svg {
+    fill: var(--text-color);
+}
+
+body {
+    min-height: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+header, main {
+    width: auto;
+    display: flex;
+    padding: 8px 16px;
+    justify-content: space-between;
+}
+
+main {
+    min-height: 100%;
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+p {
+    margin: 0;
+}
+
+header {
+    background: var(--background-color);
+}
+
+/*
+// Панели
+*/
+
+#left-panel, #right-panel {
+    min-height: 100px;
+}
+
+#left-panel {
+    min-width: 300px;
+    width: 25%;
+}
+
+#left-panel div:last-child {
+    display: flex;
+    justify-content: center;
+    border: solid 1px var(--border-color);
+    background: var(--body-color);
+    border-radius: 8px;
+    padding: 8px 16px;
+}
+
+#left-panel > * {
+    margin: 8px 0;
+}
+
+#left-panel *:first-child {
+    margin-top: 0;
+}
+
+#left-panel div:last-child label {
+    margin-left: 4px;
+}
+
+#right-panel {
+    width: 75%;
+    margin-left: 24px;
+}
+/*
+#right-panel-header {
+    display: flex;
+    justify-content: space-between;
+}
+*/
+/*
+// Кнопки
+*/
+
+.a-button {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    border: solid 1px var(--border-color);
+    background: var(--body-color);
+    color: var(--text-color);
+}
+
+.a-button:hover {
+    border-radius: 24px;
+    border-color: var(--text-color);
+    background: var(--text-color);
+    color: var(--body-color);
+}
+
+#sort-tasks {
+    width: min-content;
+    display: flex;
+    padding: 4px 8px;
+    border-radius: 16px;
+    border: solid 1px transparent;
+    transition: all 0.2s;
+}
+
+#sort-tasks:hover {
+    cursor: pointer;
+    border-color: var(--text-color);
+}
+
+#sort-tasks {
+    margin-left: auto;
+}
+
+#sort-tasks p {
+    margin-left: 4px;
+}
+
+/*
+// Строка поиска
+*/
+
+#search-bar {
+    min-width: 300px;
+    width: 30%;
+    display: flex;
+    padding: 8px 16px;
+    background: var(--body-color);
+    border: solid 1px var(--border-color);
+    border-radius: 16px;
+}
+
+#search-bar svg:first-child {
+    margin-right: 8px;
+}
+
+#search-bar #search-form {
+    width: 100%;
+}
+
+#search-bar #search-form input[type="text"] {
+    margin: auto 0;
+    width: 100%;
+    border: none;
+    background: transparent;
+}
+
+#search-bar #search-form input[type="text"]::placeholder {
+    color: var(--text-color);
+    font-family: "Rubik", serif;
+}
+
+#search-bar #search-form input[type="text"]:focus {
+    outline: none;
+}
+
+/*
+// Карточка задания
+*/
+
+.task-card {
+    width: auto;
+    padding: 16px;
+    margin: 8px 0;
+    border-radius: 8px;
+    background: var(--body-color);
+    border: solid 1px var(--border-color);
+    transition: all 0.2s;
+}
+
+.task-card:hover {
+    cursor: pointer;
+    border-radius: 24px;
+}
+
+.task-card p:first-child {
+    font-weight: bold;
+    font-size: large;
+}
+
+.task-card div {
+    min-width: 300px;
+    max-width: 500px;
+    margin: 8px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.task-card p:last-child {
+    font-size: small;
+}
+
+/*
+// Календарь
+*/
+
+#calendar {
+    border: solid 1px var(--border-color);
+    background: var(--body-color);
+    border-radius: 16px;
+    padding: 8px;
+}
+
+#calendar #calendar-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+#calendar #calendar-header a {
+    border-radius: 16px;
+    padding: 2px 4px;
+}
+
+#calendar #calendar-header a:hover {
+    background: var(--text-color);
+    color: var(--background-color);
+}
+
+#calendar table {
+    width: 100%;
+}
+
+#calendar table td {
+    border-radius: 8px;
+    text-align: center;
+    padding: 5px;
+}
+
+#calendar table .selectable-date {
+    border: solid 1px transparent;
+}
+
+#calendar table .selectable-date:hover {
+    background: var(--text-color);
+    color: var(--background-color);
+}
+
+#calendar table .selected-date {
+    border-color: var(--text-color);
+}
+
+#calendar a:hover, #calendar table .selectable-date:hover {
+    cursor: pointer;
+}
+
+/*
+// Полная информация о задании
+*/
+
+#todo-background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+    visibility: hidden;
+}
+
+#todo-background #todo-card {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 500px;
+    width: 700px;
+    min-height: 250px;
+    height: 400px;
+    background: var(--body-color);
+    border: solid 1px var(--border-color);
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.divider {
+    margin: 8px 0;
+    background: var(--border-color);
+    width: 100%;
+    height: 1px;
+}
+
+#todo-background #todo-card a:first-child {
+    width: min-content;
+    height: min-content;
+    padding: 4px 8px;
+    margin-left: auto;
+}
+
+#todo-background #todo-card-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: x-large;
+}
+
+#todo-background #todo-card-date {
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+#todo-background #todo-card-description {
+    text-align: justify;
+    margin-bottom: 8px;
+    max-height: 500px;
+    height: auto;
+    overflow-y: auto;
+}
+
+#todo-background #todo-card-done:hover {
+    cursor: pointer;
+}
+
+/*
+// Drop down меню при поиске
+*/
+
+#search-results-container {
+    position: absolute;
+    width: auto;
+    border-radius: 24px;
+    padding: 16px;
+    width: 400px;
+    max-width: 500px;
+    height: min-content;
+    max-height: 400px;
+    background: var(--body-color);
+    border: solid 1px var(--border-color);
+    overflow-y: auto;
+    overflow-x: hidden;
+    visibility: hidden;
+}
+
+#search-results-container .find-task-card > * {
+    margin: 4px 0;
+}
+
+#search-results-container .find-task-card {
+    width: 100%;
+    border-radius: 16px;
+    padding: 8px;
+    transition: all 0.2s;
+}
+
+#search-results-container .find-task-card:hover {
+    cursor: pointer;
+    background: var(--border-color);
+}
+
+#search-results-container .find-task-card p:first-child {
+    font-weight: bold;
+}
+
+#search-results-container .find-task-card p:last-child {
+    font-style: italic;
+}

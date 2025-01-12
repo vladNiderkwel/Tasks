@@ -1,0 +1,11 @@
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis est odio. Vivamus ultricies molestie gravida. Aliquam eget diam in lorem varius hendrerit.
+Suspendisse facilisis massa in arcu ultricies, vel malesuada lacus cursus. Pellentesque porta, velit a auctor tempus, lorem ipsum hendrerit odio, sed sollicitudin diam urna et sem.
+
+require ‘Folder 2/File 2-2’
+
+require ‘Folder 1/File 1-2’
+
+require ‘Folder 2/Folder 2-1/File 2-1-1’
+
+Fusce blandit finibus tortor a condimentum. Maecenas ac eros at libero volutpat iaculis id tempus nulla.
+Morbi ut rhoncus quam, ac rhoncus nisl. Suspendisse eleifend elementum dolor eget consequat. Donec ullamcorper tortor neque, vitae iaculis augue facilisis et.
