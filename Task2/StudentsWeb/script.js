@@ -70,7 +70,6 @@ form.onsubmit = (e) => {
 
     fetch(URL, {
         method: "POST",
-        mode: 'no-cors',
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(Object.fromEntries(new FormData(form)))
     })
